@@ -32,7 +32,7 @@ const RowTable = ({ appointment }:TRow) => {
         `${dayjs(datetime).format('lll')}`
 }
       </TableCell>
-      <TableCell sx={{...bodyCell(themes?.themeMode), fontSize: '1.25rem'}}>{isBooked ? '✅' : '❌'}</TableCell>
+      <TableCell sx={{ ...bodyCell(themes?.themeMode), fontSize: '1.25rem' }}>{isBooked ? '✅' : '❌'}</TableCell>
       <TableCell sx={bodyCell(themes?.themeMode)}>{availability ? 'AVAILABLE' : 'CANCELED'}</TableCell>
       <TableCell sx={bodyCell(themes?.themeMode)}>
         <Checkbox

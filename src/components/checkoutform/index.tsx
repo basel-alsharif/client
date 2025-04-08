@@ -41,7 +41,7 @@ const CheckoutForm = ({ id, setOpen, setActiveStep }:any) => {
         await axiosInstance.post('/session', {
           appointmentId: id,
         });
-        setActiveStep(0)
+        setActiveStep(0);
         enqueueSnackbar('Payment succeeded 🔥', { variant: 'success' });
         handleCloseModelAfterSuccessful();
       } else {

@@ -8,7 +8,9 @@ import axiosInstance from '../../../utils/apis/axios';
 const { VITE_PUBLIC_API_KEY } = import.meta.env;
 const stripePromise = loadStripe(VITE_PUBLIC_API_KEY);
 
-const Payment = ({ formik, hourlyRate, setOpen, setActiveStep }: any) => {
+const Payment = ({
+  formik, hourlyRate, setOpen, setActiveStep,
+}: any) => {
   const [clientSecret, setClientSecret] = useState('');
   const { enqueueSnackbar } = useSnackbar();
   useEffect(() => {
@@ -29,7 +31,11 @@ const Payment = ({ formik, hourlyRate, setOpen, setActiveStep }: any) => {
     <div>
       {clientSecret ? (
         <Elements options={{ clientSecret }} stripe={stripePromise}>
-          <CheckoutForm id={formik.values.appointmentId} setOpen={setOpen} setActiveStep={setActiveStep} />
+          <CheckoutForm
+            id={formik.values.appointmentId}
+            setOpen={setOpen}
+            setActiveStep={setActiveStep}
+          />
         </Elements>
       ) : (
         <div>Loading...</div>

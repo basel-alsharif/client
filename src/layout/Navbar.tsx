@@ -28,7 +28,7 @@ const Navbar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const themes = useContext(ThemeContext);
   const navigate = useNavigate();
-    
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -146,20 +146,17 @@ const Navbar = () => {
           <Box sx={{ display: 'flex', gap: '0.5rem' }}>
             {userData?.userData ? (
 
-              <>
-                <Button onClick={handleOpenUserMenu} sx={{ p: "0 0.25rem", }}>
-                  <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'none', sm: 'block' }}}>
-                    {userData?.userData.fullName || 'ADMIN'}
-                  </Typography>
+              <Button onClick={handleOpenUserMenu} sx={{ p: '0 0.25rem' }}>
+                <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'none', sm: 'block' } }}>
+                  {userData?.userData.fullName || 'ADMIN'}
+                </Typography>
 
-                  <Avatar
-                    alt="user avatar"
-                    src={`${userData?.userData?.profileImg}?timestamp=${Date.now()} || 'https://2u.pw/boTFzk6'`}
-                    sx={{ ml: 1 }}
-                  />
-                </Button>
-
-              </>
+                <Avatar
+                  alt="user avatar"
+                  src={`${userData?.userData?.profileImg}?timestamp=${Date.now()} || 'https://2u.pw/boTFzk6'`}
+                  sx={{ ml: 1 }}
+                />
+              </Button>
 
             ) : (
               <>
@@ -180,86 +177,84 @@ const Navbar = () => {
               </>
             )}
 
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                    {userData?.userData?.role === 'therapist' && (
-                      <>
-                        <MenuItem  onClick={handleCloseUserMenu}>
-                          <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'block', sm: 'none' }}}>
-                            {userData?.userData.fullName || 'ADMIN'}
-                          </Typography>
-                        </MenuItem>
-                        <MenuItem  onClick={handleCloseUserMenu}>
-                          <Link to={`/therapist/${userData?.userData?.therapistId}`} style={{ textDecoration: 'none', fontWeight: 'bold' }}>
-                            <Typography textAlign="center" sx={{ width: '120px' }}>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {userData?.userData?.role === 'therapist' && (
+                <>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'block', sm: 'none' } }}>
+                      {userData?.userData.fullName || 'ADMIN'}
+                    </Typography>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Link to={`/therapist/${userData?.userData?.therapistId}`} style={{ textDecoration: 'none', fontWeight: 'bold' }}>
+                      <Typography textAlign="center" sx={{ width: '120px' }}>
 
-                              <AccountCircleIcon style={{
-                                position: 'absolute', top: '5', left: '22',
-                              }}
-                              />
-                              profile
-                            </Typography>
-                          </Link>
-                        </MenuItem>
-                        <MenuItem  onClick={handleCloseUserMenu}>
-                          <Box onClick={handleLogout} sx={{ display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
-                            <Link to={'/'} >Sign out</Link>
-                            <LogoutIcon onClick={handleLogout} sx={{ cursor: 'pointer' }} />
-                          </Box>
-                        </MenuItem>
-                      </>
-                    )}
-                    {userData?.userData?.role === 'user' && (
-                      <>
-                        <MenuItem  onClick={handleCloseUserMenu}>
-                          <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'block', sm: 'none' }}}>
-                            {userData?.userData.fullName || 'ADMIN'}
-                          </Typography>
-                        </MenuItem>
-                        <MenuItem  onClick={handleCloseUserMenu}>
-                          <Box onClick={handleLogout} sx={{ display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
-                            <Link to={'/'} >Sign out</Link>
-                            <LogoutIcon onClick={handleLogout} sx={{ cursor: 'pointer' }} />
-                          </Box>
-                        </MenuItem>
-                      </>
-                    )}
-                    {userData?.userData?.role === 'admin' && (
-                     <>
-                        <MenuItem  onClick={handleCloseUserMenu}>
-                          <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'block', sm: 'none' }}}>
-                            {userData?.userData.fullName || 'ADMIN'}
-                          </Typography>
-                        </MenuItem>
-                        <MenuItem  onClick={handleCloseUserMenu}>
-                          <Link to="/admin/therapists">Dashboard</Link>
-                        </MenuItem>
-                        <MenuItem  onClick={handleCloseUserMenu}>
-                          <Box onClick={handleLogout} sx={{ display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
-                            <Link to={'/'} >Sign out</Link>
-                            <LogoutIcon onClick={handleLogout} sx={{ cursor: 'pointer' }} />
-                          </Box>
-                        </MenuItem>
-                     </>
-                    )}
-           
-        
-              </Menu>
-           
+                        <AccountCircleIcon style={{
+                          position: 'absolute', top: '5', left: '22',
+                        }}
+                        />
+                        profile
+                      </Typography>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Box onClick={handleLogout} sx={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                      <Link to="/">Sign out</Link>
+                      <LogoutIcon onClick={handleLogout} sx={{ cursor: 'pointer' }} />
+                    </Box>
+                  </MenuItem>
+                </>
+              )}
+              {userData?.userData?.role === 'user' && (
+                <>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'block', sm: 'none' } }}>
+                      {userData?.userData.fullName || 'ADMIN'}
+                    </Typography>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Box onClick={handleLogout} sx={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                      <Link to="/">Sign out</Link>
+                      <LogoutIcon onClick={handleLogout} sx={{ cursor: 'pointer' }} />
+                    </Box>
+                  </MenuItem>
+                </>
+              )}
+              {userData?.userData?.role === 'admin' && (
+                <>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'block', sm: 'none' } }}>
+                      {userData?.userData.fullName || 'ADMIN'}
+                    </Typography>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Link to="/admin/therapists">Dashboard</Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Box onClick={handleLogout} sx={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                      <Link to="/">Sign out</Link>
+                      <LogoutIcon onClick={handleLogout} sx={{ cursor: 'pointer' }} />
+                    </Box>
+                  </MenuItem>
+                </>
+              )}
+
+            </Menu>
 
           </Box>
         </Toolbar>

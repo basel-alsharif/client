@@ -43,9 +43,9 @@ const AppointmentsTable = ({
   return (
     <TableContainer
       component={Paper}
-      sx={{...container, height:'fit-content' , minHeight: '131.5px'}}
+      sx={{ ...container, height: 'fit-content', minHeight: '131.5px' }}
     >
-      <Table sx={{ height:'fit-content'}} aria-label="simple table">
+      <Table sx={{ height: 'fit-content' }} aria-label="simple table">
         <TableHead sx={{ backgroundColor: '#516EFF' }}>
           <TableRow>
             <TableCell sx={headerCell}>
@@ -63,7 +63,7 @@ const AppointmentsTable = ({
           </TableRow>
         </TableHead>
         <TableBody sx={{
-          margin: '3px', position: 'relative', height:'fit-content', minHeight: '75px'
+          margin: '3px', position: 'relative', height: 'fit-content', minHeight: '75px',
         }}
         >
           { loading
@@ -83,7 +83,7 @@ const AppointmentsTable = ({
             )}
           {!loading && appointments?.length === 0
           && (
-          <TableRow sx={{...centerMessage, transform: 'translate(-50px, 12px)'}}>
+          <TableRow sx={{ ...centerMessage, transform: 'translate(-50px, 12px)' }}>
             <Alert severity="info"> No appointments found</Alert>
           </TableRow>
           )}

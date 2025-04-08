@@ -110,18 +110,24 @@ const TherapistHeader: React.FC<Props> = ({ isProfileOwner, setError }) => {
               boxShadow: '1px 4px 6px rgba(0, 0, 0, 0.1)',
               padding: '16px',
               width: '100%',
-              maxWidth: '100%'
+              maxWidth: '100%',
             }}
           >
 
             {!isUploading
             && (
-              <Grid item xs={12} sm={6} md={4} sx={{
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                sx={{
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
                 <ChangePhoto
                   isProfileOwner={isProfileOwner}
                   onChange={handleFileChange}
@@ -132,20 +138,26 @@ const TherapistHeader: React.FC<Props> = ({ isProfileOwner, setError }) => {
               </Grid>
             )}
             {isUploading && (
-              <Grid item xs={12} sm={6} md={4} sx={{
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                sx={{
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
                 <Skeleton
-              variant="rectangular"
-              width={'80%'}
-              height={'80%'}
-              sx={{
-                borderRadius: '8px',
-              }}
-            />
+                  variant="rectangular"
+                  width="80%"
+                  height="80%"
+                  sx={{
+                    borderRadius: '8px',
+                  }}
+                />
               </Grid>
             ) }
             <Grid item xs={12} sm={6} md={8}>
@@ -171,7 +183,7 @@ const TherapistHeader: React.FC<Props> = ({ isProfileOwner, setError }) => {
                   mb: 1,
                   fontSize: '18px',
                   color: themes?.themeMode === 'dark' ? '#eeee' : '#000',
-                  minWidth: '135px'
+                  minWidth: '135px',
                 }}
                 >
                   session price: $
@@ -217,12 +229,17 @@ const TherapistHeader: React.FC<Props> = ({ isProfileOwner, setError }) => {
               />
               )}
             </Grid>
-            <Grid item xs={12} sx={{ width: '100%', maxWidth: '100%'}}>
+            <Grid item xs={12} sx={{ width: '100%', maxWidth: '100%' }}>
               <Box
                 component="div"
                 sx={{
-                  padding: '20px', borderRadius: '8px', width: '100%', maxWidth: '100%',
-                  display: 'flex', ...(isProfileOwner ? {justifyContent:  'space-between'} : {justifyContent: 'start'}) , gap: '0.75rem'
+                  padding: '20px',
+                  borderRadius: '8px',
+                  width: '100%',
+                  maxWidth: '100%',
+                  display: 'flex',
+                  ...(isProfileOwner ? { justifyContent: 'space-between' } : { justifyContent: 'start' }),
+                  gap: '0.75rem',
                 }}
               >
                 <Typography
@@ -257,10 +274,10 @@ const TherapistHeader: React.FC<Props> = ({ isProfileOwner, setError }) => {
       ) : (
         <>
           <div style={{ display: 'flex' }}>
-            <Skeleton variant="rectangular" width={'30%'} height={300} />
+            <Skeleton variant="rectangular" width="30%" height={300} />
             <Skeleton variant="text" sx={{ ml: 4, width: '50%' }} />
           </div>
-          <Skeleton variant="rectangular" width={'90%'} height={300} sx={{ mt: 5 }} />
+          <Skeleton variant="rectangular" width="90%" height={300} sx={{ mt: 5 }} />
         </>
       )}
     </Container>

@@ -6,7 +6,6 @@ import { AuthContext, ThemeProvider } from './context';
 import './index.css';
 
 const App = (): ReactElement => {
-  
   useEffect(() => {
     const handleOnline = () => {
       enqueueSnackbar('You are back online', { variant: 'success' });

@@ -77,13 +77,19 @@ const AppointmentsModal = ({ handleClose, open, setOpenAppointmentsModal }: Prop
 
     >
       <Fade in={open}>
-        <Box sx={{ ...classes['Model'], width: { xs: '95%', sm: '90%', md: '600px'}, height: 'auto', maxHeight: '90%', overflow: 'auto'}} component="form" onSubmit={formik.handleSubmit}>
+        <Box
+          sx={{
+            ...classes.Model, width: { xs: '95%', sm: '90%', md: '600px' }, height: 'auto', maxHeight: '90%', overflow: 'auto',
+          }}
+          component="form"
+          onSubmit={formik.handleSubmit}
+        >
           <Typography component="b">Choose Your Availability Times </Typography>
           <Typography id="transition-modal-title" variant="body1" component="p" sx={{ margin: '5px', fontSize: '12px' }}>Flexibly select and schedule preferred time slots for availability.</Typography>
           <Typography id="transition-modal-title" variant="body1" component="p" color="error" sx={{ margin: '5px', fontSize: '10px' }}>*selected times will be added as records of one-hour available sessions</Typography>
           <Container>
             <Grid container spacing={2} sx={{ marginTop: '1rem' }}>
-              <Box sx={{ py: 1 , width: '100%'}}>
+              <Box sx={{ py: 1, width: '100%' }}>
                 <Grid container spacing={2}>
                   <Grid item xs={6}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>

@@ -31,29 +31,29 @@ const DashBoard = () => {
     <Drawer variant="permanent" anchor="left" sx={{ width: '175px' }}>
       <div style={{ width: '175px' }}>
 
-      <Link to="/">
-        <img src={Logo} alt="logo" style={{ width: '100%' }} />
-      </Link>
-      <List style={{ width: '100%' }}>
-        <ListItem button onClick={handleToPageHome}>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem button onClick={handleToPageTherapists}>
-          <ListItemIcon>
-            <PersonIcon />
-          </ListItemIcon>
-          <ListItemText primary="Therapists" />
-        </ListItem>
-        <ListItem button onClick={handleToPageBugs}>
-          <ListItemIcon>
-            <InboxIcon />
-          </ListItemIcon>
-          <ListItemText primary="Bugs" />
-        </ListItem>
-      </List>
+        <Link to="/">
+          <img src={Logo} alt="logo" style={{ width: '100%' }} />
+        </Link>
+        <List style={{ width: '100%' }}>
+          <ListItem button onClick={handleToPageHome}>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <ListItem button onClick={handleToPageTherapists}>
+            <ListItemIcon>
+              <PersonIcon />
+            </ListItemIcon>
+            <ListItemText primary="Therapists" />
+          </ListItem>
+          <ListItem button onClick={handleToPageBugs}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Bugs" />
+          </ListItem>
+        </List>
       </div>
     </Drawer>
   );

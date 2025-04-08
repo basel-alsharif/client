@@ -15,7 +15,7 @@ const SearchBoxStyle: Type = {
 const SelectInputStyle: Type = {
   backgroundColor: '#eee',
   borderRadius: '999px',
-  width: '100%'
+  width: '100%',
 };
 
 export { SearchBoxStyle, SelectInputStyle };

@@ -76,7 +76,6 @@ const Login = () => {
       <Grid
         item
         xs={false}
-   
         md={6}
         sx={{ height: 'fit-content', width: 'fit-content', overflow: 'hidden' }}
       >
@@ -147,7 +146,7 @@ const Login = () => {
             </LoadingButton>
             <Grid container>
               <Grid>
-                <Link to="/signup" className="signUpLink" >
+                <Link to="/signup" className="signUpLink">
                   Do not have an account?  Sign Up
                 </Link>
               </Grid>

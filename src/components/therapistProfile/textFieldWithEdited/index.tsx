@@ -54,7 +54,7 @@ const EditableTextField: React.FC<Props> = ({
       onMouseEnter={toggleMouseover}
       onMouseLeave={toggleMouseover}
       variant="standard"
-      sx={{ ...style, width: '100%'}}
+      sx={{ ...style, width: '100%' }}
       InputProps={{
         disableUnderline: true,
         endAdornment:

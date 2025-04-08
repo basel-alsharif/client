@@ -39,7 +39,9 @@ const BioEditor: React.FC<BioEditorProps> = ({
       {show ? (
         <>
           <ReactQuill
-            style={{ width: '100%', maxWidth: '100%', height: '150px', marginTop: 20, color: themeMode === 'dark' ? '#eeee' : '#000' }}
+            style={{
+              width: '100%', maxWidth: '100%', height: '150px', marginTop: 20, color: themeMode === 'dark' ? '#eeee' : '#000',
+            }}
             theme="snow"
             value={textBio}
             onChange={handleChangeTextBio}

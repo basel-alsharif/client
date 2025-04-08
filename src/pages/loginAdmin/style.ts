@@ -10,7 +10,7 @@ const formContainer = {
 };
 
 const loginContainer = {
-  display: 'flex', justifyContent: 'center', flexDirection: 'column', gap: '10px'
+  display: 'flex', justifyContent: 'center', flexDirection: 'column', gap: '10px',
 };
 
 export { formContainer, loginContainer };
