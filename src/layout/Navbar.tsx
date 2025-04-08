@@ -13,7 +13,6 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { userDataContext } from '../context';
 import ThemeContext from '../context/themeContext';
 import Logo from '../assets/img/logo.png';
-import { padding } from '@mui/system';
 
 export { ProtectedUser } from '../routes/protected';
 
@@ -22,7 +21,6 @@ const pages = [
   { title: 'Therapists', link: '/therapists' },
 
 ];
-const settings = ['Profile'];
 
 const Navbar = () => {
   const userData = useContext(userDataContext);
