@@ -243,20 +243,19 @@ const Signup = () => {
   return (
     <Grid container component="main" sx={gridStyle}>
       <CssBaseline />
-      <Grid style={{ height: 'fit-content', width: 'fit-content', overflow: 'hidden' }} item xs={false} sm={4} md={6}>
+      <Grid style={{ height: 'fit-content', width: 'fit-content', overflow: 'hidden' }} item xs={false} md={6}>
         <img src={imageSrc} alt="login" className="imageLogin" style={imageStyle} />
       </Grid>
       <Grid
         item
         xs={12}
-        sm={8}
         md={6}
         component={Paper}
         elevation={6}
         square
         style={{ height: '100vh', overflow: 'auto', overflowX: 'hidden' }}
       >
-        <Box sx={boxStyle}>
+        <Box sx={{ ...boxStyle, margin: '50px 0 0', px: '0.5rem' }}>
           <Link to="/">
             <img src={logosrc} alt="login" style={{ width: '250px', cursor: 'pointer' }} />
           </Link>

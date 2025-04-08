@@ -2,11 +2,9 @@ import {
   useState, useEffect, ChangeEvent, useContext,
 } from 'react';
 import {
-  Container, InputBase,
-  IconButton, Box, Grid,
+  Container, InputBase, Box, Grid,
   Pagination, InputLabel,
 } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
 import { enqueueSnackbar } from 'notistack';
 import { AxiosError } from 'axios';
 import { TherapistList } from '../../components';
@@ -83,60 +81,16 @@ const TherapistPage = () => {
           <Grid
             item
             xs={12}
-            md={8}
             sx={{
               display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
+              flexDirection: 'column',
               pt: 4,
-              '@media (max-width: 600px)': {
-                display: 'block',
-              },
             }}
           >
-            <InputLabel id="price-filter-label" sx={{ mr: 2, mb: '10px' }}> Filter Price :</InputLabel>
-            <Box display="flex">
 
-              <InputBase
-                placeholder="Enter min"
-                inputProps={{ 'aria-label': 'price-filter' }}
-                value={minPrice}
-                style={SelectInputStyle}
-                onChange={handleMinPriceChange}
-                sx={{
-                  '& .MuiInputBase-input': {
-                    fontSize: '1rem',
-                    color: themes?.themeMode === 'dark' ? 'black' : 'inherit',
-                    padding: '10px 12px',
-                  },
-                  '& .MuiInputBase-input::placeholder': {
-                    color: '#999',
-                    opacity: 1,
-                  },
-                }}
-              />
-
-              <InputBase
-                placeholder=" Enter max"
-                inputProps={{ 'aria-label': 'price-filter' }}
-                value={maxPrice}
-                onChange={handleMaxPriceChange}
-                style={SelectInputStyle}
-                sx={{
-                  '& .MuiInputBase-input': {
-                    fontSize: '1rem',
-                    color: themes?.themeMode === 'dark' ? 'black' : 'inherit',
-                    padding: '10px 12px',
-                  },
-                  '& .MuiInputBase-input::placeholder': {
-                    color: '#999',
-                    opacity: 1,
-                  },
-                }}
-              />
-            </Box>
+            <Box sx={{ width: '100%', maxWidth: '700px' }}>
             <InputBase
-              placeholder="Search..."
+              placeholder="Search By Name..."
               inputProps={{ 'aria-label': 'search' }}
               value={searchQuery}
               onChange={handleSearch}
@@ -153,14 +107,55 @@ const TherapistPage = () => {
                 },
               }}
             />
+            </Box>
 
-            <IconButton aria-label="search" sx={{ ml: 1 }}>
-              <SearchIcon />
-            </IconButton>
+              <Box sx={{ width: '100%', maxWidth: '700px' }}>
+                <InputLabel id="price-filter-label" sx={{ mr: 2, mb: '10px' }}> Filter Price :</InputLabel>
+                <Box display="flex" sx={{ gap: '0.5rem'}}>
+
+                  <InputBase
+                    placeholder="Enter min"
+                    inputProps={{ 'aria-label': 'price-filter' }}
+                    value={minPrice}
+                    style={SelectInputStyle}
+                    onChange={handleMinPriceChange}
+                    sx={{
+                      '& .MuiInputBase-input': {
+                        fontSize: '1rem',
+                        color: themes?.themeMode === 'dark' ? 'black' : 'inherit',
+                        padding: '10px 12px',
+                      },
+                      '& .MuiInputBase-input::placeholder': {
+                        color: '#999',
+                        opacity: 1,
+                      },
+                    }}
+                  />
+
+                  <InputBase
+                    placeholder=" Enter max"
+                    inputProps={{ 'aria-label': 'price-filter' }}
+                    value={maxPrice}
+                    onChange={handleMaxPriceChange}
+                    style={SelectInputStyle}
+                    sx={{
+                      '& .MuiInputBase-input': {
+                        fontSize: '1rem',
+                        color: themes?.themeMode === 'dark' ? 'black' : 'inherit',
+                        padding: '10px 12px',
+                      },
+                      '& .MuiInputBase-input::placeholder': {
+                        color: '#999',
+                        opacity: 1,
+                      },
+                    }}
+                  />
+                </Box>
+            </Box>
           </Grid>
         </Container>
       </Box>
-      <Container sx={{ pb: 8 }}>
+      <Container sx={{ pb: 4 }}>
         <TherapistList therapists={therapists} loading={loading} />
         <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
           <Pagination

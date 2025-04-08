@@ -16,7 +16,6 @@ const GridCard = ({ therapist }: TherapistCardProps) => (
       <CardActionArea>
         <CardMedia
           component="img"
-          height="210"
           image={`${therapist.profileImg}?timestamp=${Date.now()}`}
           alt={therapist.user.fullName}
           sx={classes.therapistImage}

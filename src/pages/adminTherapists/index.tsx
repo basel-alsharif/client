@@ -66,14 +66,15 @@ const AdminTherapists = () => {
           setCurrentPage={setCurrentPage as typeof useState<number>}
         />
         <TherapistTable therapists={therapists} loading={loading} />
-        <Pagination
-          sx={{ display: 'block', margin: '10px 20px' }}
-          count={totalPages}
-          page={currentPage}
-          onChange={handlePageChange}
-          color="primary"
-          disabled={totalPages <= 1}
-        />
+        <div style={{ margin: '1rem', display: 'flex', justifyContent: 'center'}}>
+          <Pagination
+            count={totalPages}
+            page={currentPage}
+            onChange={handlePageChange}
+            color="primary"
+            disabled={totalPages <= 1}
+          />
+        </div>
       </Container>
     </div>
   );

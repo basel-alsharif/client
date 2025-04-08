@@ -25,7 +25,6 @@ const TypographyBody1: Type = {
   heigh: 'fit-content',
   textAlign: 'center',
   mx: 'auto',
-  // mt: '-20px',
   '@media (max-width: 600px)': {
     width: '100%',
     fontSize: '16px',

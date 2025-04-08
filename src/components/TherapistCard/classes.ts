@@ -21,10 +21,7 @@ const DoctorName: Card = {
 };
 const therapistImage: Card = {
   marginBottom: '5px',
-  '@media (max-width: 600px)': {
-    height: '400px',
-  },
-
+  with: '100%',
 };
 
 const classes = {

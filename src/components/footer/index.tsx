@@ -24,7 +24,7 @@ const Footer = () => {
             <Box sx={{ textAlign: 'center' }}>
               <Logo />
             </Box>
-            <Typography variant="body1" sx={TypographyBody1}>
+            <Typography variant="body1" sx={{ ...TypographyBody1, px: '0.5rem' }}>
               We&apos;re committed to delivering life-changing anxiety
               and depression care to everyone who needs it.
             </Typography>

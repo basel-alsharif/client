@@ -32,10 +32,11 @@ const TherapistProfile = () => {
       backgroundColor: themes?.themeMode === 'dark' ? '#181A1B' : '',
       paddingTop: '50px',
       paddingBottom: '50px',
+      width: '100%',
     }}
     >
 
-      <Container>
+      <Container sx={{ width: '100%' }}>
         <TherapistHeader isProfileOwner={isProfileOwner} setError={setError} />
         {
         isProfileOwner

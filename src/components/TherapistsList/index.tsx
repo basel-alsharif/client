@@ -44,7 +44,7 @@ const TherapistList = ({
 
   if (therapists.length === 0) {
     return (
-      <Container style={{ height: '800px' }}>
+      <Container>
         <Alert severity="info" sx={{ mt: 4 }}>
           No therapists found.
         </Alert>

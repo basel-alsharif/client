@@ -30,13 +30,13 @@ interface SessionReservationModalProps {
 }
 
 const StepComponent: React.FC<StepComponentProps> = ({
-  step, formik, hourlyRate, setOpen, setActiveStep
+  step, formik, hourlyRate, setOpen, setActiveStep,
 }) => {
   switch (step) {
     case 0:
       return <BookAppointment formik={formik} />;
     case 1:
-      return <StripePaymentForm formik={formik} hourlyRate={hourlyRate} setOpen={setOpen} setActiveStep={setActiveStep} />;
+      return <StripePaymentForm formik={formik} hourlyRate={hourlyRate} setOpen={setOpen} setActiveStep={setActiveStep}/>;
     default:
       return null;
   }
@@ -77,14 +77,15 @@ const SessionReservationModal: React.FC<SessionReservationModalProps> = (
     >
       <>
         <CssBaseline />
-        <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-          <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+        <Container component="main" sx={{ ...( activeStep === 0 ? { mb: '75px' } : {mb: '0'}), width: { xs: '95%', sm: '90%', md: '600px' } }}>
+          <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } , height: 'auto', maxHeight: '100vh', overflow: 'auto' }}>
             <IconButton
               aria-label="close"
               color="inherit"
               onClick={handleClose}
               sx={{
-                ml: '90%',
+                display: 'block',
+                ml: 'auto',
               }}
             >
               <Close />

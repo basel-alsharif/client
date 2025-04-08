@@ -1,5 +1,6 @@
 import {
   Container, Box, Typography, Skeleton, Button,
+  Grid,
 } from '@mui/material';
 import React, {
   useState, useEffect, useContext,
@@ -96,46 +97,58 @@ const TherapistHeader: React.FC<Props> = ({ isProfileOwner, setError }) => {
   };
 
   return (
-    <Container sx={{ mb: 16 }}>
+    <Container sx={{ mb: 6 }}>
 
       {dataFromTherapist ? (
-        <Box sx={{ width: 1, mt: 8 }}>
-          <Box
-            display="grid"
-            gridTemplateColumns="repeat(12, 1fr)"
-            gap={2}
+        <Box sx={{ width: '100%', maxWidth: '100%' }}>
+          <Grid
+            container
             sx={{
               backgroundColor: themes?.themeMode === 'dark' ? '#191A1B' : '',
               border: '2px solid #ddd',
               borderRadius: '8px',
               boxShadow: '1px 4px 6px rgba(0, 0, 0, 0.1)',
               padding: '16px',
+              width: '100%',
+              maxWidth: '100%'
             }}
           >
 
             {!isUploading
             && (
-            <ChangePhoto
-              isProfileOwner={isProfileOwner}
-              onChange={handleFileChange}
-              hover={hover}
-              setHover={setHover}
-              imgUrl={`${dataFromTherapist.profileImg}?timestamp=${photoTimestamp}`}
-            />
+              <Grid item xs={12} sm={6} md={4} sx={{
+                position: 'relative',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}>
+                <ChangePhoto
+                  isProfileOwner={isProfileOwner}
+                  onChange={handleFileChange}
+                  hover={hover}
+                  setHover={setHover}
+                  imgUrl={`${dataFromTherapist.profileImg}?timestamp=${photoTimestamp}`}
+                />
+              </Grid>
             )}
             {isUploading && (
-            <Skeleton
+              <Grid item xs={12} sm={6} md={4} sx={{
+                position: 'relative',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}>
+                <Skeleton
               variant="rectangular"
-              width={300}
-              height={300}
+              width={'80%'}
+              height={'80%'}
               sx={{
-                gridColumn: 'span 2',
-                gridRow: 'span 2',
                 borderRadius: '8px',
               }}
             />
+              </Grid>
             ) }
-            <Box sx={{ width: '500px', ml: '50px' }}>
+            <Grid item xs={12} sm={6} md={8}>
               <EditableTextField
                 value={dataFromTherapist.user.fullName}
                 dataType="fullName"
@@ -152,15 +165,16 @@ const TherapistHeader: React.FC<Props> = ({ isProfileOwner, setError }) => {
                 themeMode={themes?.themeMode}
               />
 
-              <Box sx={BoxStyle}>
+              <Box sx={{ ...BoxStyle, justifyContent: 'center', width: '100%' }}>
                 <Typography sx={{
                   fontWeight: 'bold',
                   mb: 1,
                   fontSize: '18px',
                   color: themes?.themeMode === 'dark' ? '#eeee' : '#000',
+                  minWidth: '135px'
                 }}
                 >
-                  for session: $
+                  session price: $
                 </Typography>
                 <EditableTextField
                   value={dataFromTherapist.hourlyRate}
@@ -202,12 +216,13 @@ const TherapistHeader: React.FC<Props> = ({ isProfileOwner, setError }) => {
                 setOpenAppointmentsModal={setOpenAppointmentsModal}
               />
               )}
-            </Box>
-            <Box gridColumn="span 12" sx={{ mt: 4 }}>
+            </Grid>
+            <Grid item xs={12} sx={{ width: '100%', maxWidth: '100%'}}>
               <Box
                 component="div"
                 sx={{
-                  padding: '20px', borderRadius: '8px', width: '850px',
+                  padding: '20px', borderRadius: '8px', width: '100%', maxWidth: '100%',
+                  display: 'flex', ...(isProfileOwner ? {justifyContent:  'space-between'} : {justifyContent: 'start'}) , gap: '0.75rem'
                 }}
               >
                 <Typography
@@ -215,7 +230,7 @@ const TherapistHeader: React.FC<Props> = ({ isProfileOwner, setError }) => {
                   variant="h5"
                   sx={TypographyStyle}
                 >
-                  Abstract ...
+                  bio:
                 </Typography>
                 {
                   isProfileOwner ? (
@@ -236,16 +251,16 @@ const TherapistHeader: React.FC<Props> = ({ isProfileOwner, setError }) => {
             }
 
               </Box>
-            </Box>
-          </Box>
+            </Grid>
+          </Grid>
         </Box>
       ) : (
         <>
           <div style={{ display: 'flex' }}>
-            <Skeleton variant="rectangular" width={300} height={300} />
+            <Skeleton variant="rectangular" width={'30%'} height={300} />
             <Skeleton variant="text" sx={{ ml: 4, width: '50%' }} />
           </div>
-          <Skeleton variant="rectangular" width={1000} height={300} sx={{ mt: 5 }} />
+          <Skeleton variant="rectangular" width={'90%'} height={300} sx={{ mt: 5 }} />
         </>
       )}
     </Container>

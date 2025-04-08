@@ -10,11 +10,10 @@ const World = () => (
 
       <Grid
         item
-        lg={6}
         xs={12}
+        sm={6}
         sx={{
           mt: 5,
-          ml: 5,
           '@media (max-width: 600px)': {
             textAlign: 'center',
           },
@@ -42,12 +41,12 @@ const World = () => (
           </Link>
         </Button>
       </Grid>
-      <Grid item lg={5} xs={12} sx={{ mt: 5 }}>
+      <Grid item xs={12} sm={6} sx={{ mt: 5, display: 'flex', alignItems: 'center' }}>
         <img
           src={Worldimg}
           alt="Worldimg"
           style={{
-            maxWidth: '100%', maxHeight: '100%', objectFit: 'cover', height: '100%', width: '100%',
+            objectFit: 'cover', width: '100%',
           }}
         />
       </Grid>

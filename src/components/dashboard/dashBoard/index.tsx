@@ -29,10 +29,12 @@ const DashBoard = () => {
 
   return (
     <Drawer variant="permanent" anchor="left" sx={{ width: '175px' }}>
+      <div style={{ width: '175px' }}>
+
       <Link to="/">
-        <img src={Logo} alt="logo" style={{ width: '180px' }} />
+        <img src={Logo} alt="logo" style={{ width: '100%' }} />
       </Link>
-      <List style={{ paddingRight: '40px' }}>
+      <List style={{ width: '100%' }}>
         <ListItem button onClick={handleToPageHome}>
           <ListItemIcon>
             <HomeIcon />
@@ -52,6 +54,7 @@ const DashBoard = () => {
           <ListItemText primary="Bugs" />
         </ListItem>
       </List>
+      </div>
     </Drawer>
   );
 };

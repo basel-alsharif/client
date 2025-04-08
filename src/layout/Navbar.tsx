@@ -13,6 +13,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { userDataContext } from '../context';
 import ThemeContext from '../context/themeContext';
 import Logo from '../assets/img/logo.png';
+import { padding } from '@mui/system';
 
 export { ProtectedUser } from '../routes/protected';
 
@@ -61,6 +62,7 @@ const Navbar = () => {
             aria-label="Toggle theme mode"
             onClick={themes?.handleThemeModeSwitch}
             color="inherit"
+            sx={{ padding: '0' }}
           >
             {themes?.themeMode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
           </IconButton>
@@ -73,6 +75,7 @@ const Navbar = () => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              sx={{ padding: '0', px: '0.5rem' }}
             >
               <MenuIcon />
             </IconButton>
@@ -142,12 +145,12 @@ const Navbar = () => {
 
           </Box>
 
-          <Box sx={{ display: 'flex' }}>
+          <Box sx={{ display: 'flex', gap: '0.5rem' }}>
             {userData?.userData ? (
 
               <>
-                <Button onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Typography sx={{ color: '#516EFF', fontWeight: 'bold', ml: 3 }}>
+                <Button onClick={handleOpenUserMenu} sx={{ p: "0 0.25rem", }}>
+                  <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'none', sm: 'block' }}}>
                     {userData?.userData.fullName || 'ADMIN'}
                   </Typography>
 
@@ -157,31 +160,27 @@ const Navbar = () => {
                     sx={{ ml: 1 }}
                   />
                 </Button>
-                <LogoutIcon onClick={handleLogout} sx={{ ml: 1, mt: 1, cursor: 'pointer' }} />
 
               </>
 
             ) : (
               <>
-                <Link to="/signup" style={{ textDecoration: 'none', color: 'white' }}>
-                  <Button variant="contained" sx={{ borderColor: 'primary.main', ml: 3 }}>
+                <Link to="/login" style={{ textDecoration: 'none', color: 'white', width: 'fit-content' }}>
+                  <Button variant="contained" sx={{ borderColor: 'primary.main', fontSize: { xs: '13px', sm: '14px' }, textTransform: 'none' }}>
 
-                    SIGN UP
-
-                  </Button>
-                </Link>
-                <Link to="/login" style={{ textDecoration: 'none', color: 'white' }}>
-                  <Button variant="contained" sx={{ borderColor: 'primary.main', ml: 1 }}>
-
-                    SIGN IN
+                    SignIN
 
                   </Button>
                 </Link>
+                <Link to="/signup" style={{ textDecoration: 'none', color: 'white', width: 'fit-content' }}>
+                  <Button variant="contained" sx={{ borderColor: 'primary.main', fontSize: { xs: '13px', sm: '14px' }, textTransform: 'none' }}>
 
+                    SignUp
+
+                  </Button>
+                </Link>
               </>
             )}
-
-            {(userData?.userData?.role === 'therapist' || userData?.userData?.role === 'admin') && (
 
               <Menu
                 sx={{ mt: '45px' }}
@@ -199,27 +198,70 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    {userData?.userData?.role === 'therapist' ? (
-                      <Link to={`/therapist/${userData?.userData?.therapistId}`} style={{ textDecoration: 'none', fontWeight: 'bold' }}>
-                        <Typography textAlign="center" sx={{ width: '120px' }}>
+                    {userData?.userData?.role === 'therapist' && (
+                      <>
+                        <MenuItem  onClick={handleCloseUserMenu}>
+                          <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'block', sm: 'none' }}}>
+                            {userData?.userData.fullName || 'ADMIN'}
+                          </Typography>
+                        </MenuItem>
+                        <MenuItem  onClick={handleCloseUserMenu}>
+                          <Link to={`/therapist/${userData?.userData?.therapistId}`} style={{ textDecoration: 'none', fontWeight: 'bold' }}>
+                            <Typography textAlign="center" sx={{ width: '120px' }}>
 
-                          <AccountCircleIcon style={{
-                            position: 'absolute', top: '5', left: '22',
-                          }}
-                          />
-                          {setting}
-                        </Typography>
-                      </Link>
-                    ) : (
-                      <Link to="/admin/therapists">Dashboard</Link>
+                              <AccountCircleIcon style={{
+                                position: 'absolute', top: '5', left: '22',
+                              }}
+                              />
+                              profile
+                            </Typography>
+                          </Link>
+                        </MenuItem>
+                        <MenuItem  onClick={handleCloseUserMenu}>
+                          <Box onClick={handleLogout} sx={{ display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
+                            <Link to={'/'} >Sign out</Link>
+                            <LogoutIcon onClick={handleLogout} sx={{ cursor: 'pointer' }} />
+                          </Box>
+                        </MenuItem>
+                      </>
                     )}
-
-                  </MenuItem>
-                ))}
+                    {userData?.userData?.role === 'user' && (
+                      <>
+                        <MenuItem  onClick={handleCloseUserMenu}>
+                          <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'block', sm: 'none' }}}>
+                            {userData?.userData.fullName || 'ADMIN'}
+                          </Typography>
+                        </MenuItem>
+                        <MenuItem  onClick={handleCloseUserMenu}>
+                          <Box onClick={handleLogout} sx={{ display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
+                            <Link to={'/'} >Sign out</Link>
+                            <LogoutIcon onClick={handleLogout} sx={{ cursor: 'pointer' }} />
+                          </Box>
+                        </MenuItem>
+                      </>
+                    )}
+                    {userData?.userData?.role === 'admin' && (
+                     <>
+                        <MenuItem  onClick={handleCloseUserMenu}>
+                          <Typography sx={{ color: '#516EFF', fontWeight: 'bold', display: { xs: 'block', sm: 'none' }}}>
+                            {userData?.userData.fullName || 'ADMIN'}
+                          </Typography>
+                        </MenuItem>
+                        <MenuItem  onClick={handleCloseUserMenu}>
+                          <Link to="/admin/therapists">Dashboard</Link>
+                        </MenuItem>
+                        <MenuItem  onClick={handleCloseUserMenu}>
+                          <Box onClick={handleLogout} sx={{ display: 'flex', alignItems: 'center', gap: '0.25rem'}}>
+                            <Link to={'/'} >Sign out</Link>
+                            <LogoutIcon onClick={handleLogout} sx={{ cursor: 'pointer' }} />
+                          </Box>
+                        </MenuItem>
+                     </>
+                    )}
+           
+        
               </Menu>
-            )}
+           
 
           </Box>
         </Toolbar>

@@ -11,9 +11,7 @@ const Questions = () => {
   return (
     <Container sx={{
       backgroundColor: themes?.themeMode === 'dark' ? '#181A1B' : '#F4F7FF',
-      height: '55rem',
       '@media (max-width: 600px)': {
-        height: '95rem',
         textAlign: 'center',
       },
     }}
@@ -33,7 +31,7 @@ const Questions = () => {
             Virtual, dedicated support every step of the way
           </Typography>
         </Grid>
-        <Grid item lg={6} xs={12}>
+        <Grid item xs={12} sm={6}>
           <img
             src={meet}
             alt="meet"
@@ -47,7 +45,7 @@ const Questions = () => {
           }
           />
         </Grid>
-        <Grid item lg={6} xs={12}>
+        <Grid item xs={12} sm={6}>
           <Grid item xs={12}>
             <Typography variant="h4" color="primary" sx={{ fontSize: 20 }}>
               1:1 Video Sessions

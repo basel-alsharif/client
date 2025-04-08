@@ -13,8 +13,8 @@ const OnlineMedical = () => {
   return (
     <>
       <Container>
-        <Grid container spacing={2} mt={5}>
-          <Grid item lg={6} xs={12} sx={{ mt: 5 }}>
+        <Grid container spacing={2} mt={5} >
+          <Grid item xs={12} md={6} sx={{ mt: 5 }}>
             <img
               src={online}
               alt="online"
@@ -23,7 +23,7 @@ const OnlineMedical = () => {
               }}
             />
           </Grid>
-          <Grid item lg={5} xs={12} sx={{ mt: 5, ml: 5 }}>
+          <Grid item xs={12} md={5} sx={{ mt: 5, ml: 5 }}>
             <Typography variant="h5" color="primary" sx={{ fontWeight: 'bold', mb: 2, mt: 3 }}>
               DISCOVER YOUR SELF
             </Typography>
@@ -50,7 +50,7 @@ const OnlineMedical = () => {
       </Container>
       <Container>
         <Grid container spacing={2} mt={5}>
-          <Grid item lg={6} xs={12} sx={{ mt: 5, ml: 5 }}>
+          <Grid item xs={12} md={5} sx={{ mt: 5, ml: 5 }}>
             <Typography variant="h5" color="primary" sx={{ fontWeight: 'bold', mb: 2, mt: 3 }}>
               BE ONE OF THE TEAM
             </Typography>
@@ -73,7 +73,7 @@ const OnlineMedical = () => {
             )}
 
           </Grid>
-          <Grid item lg={5} xs={12} sx={{ mt: 5 }}>
+          <Grid item xs={12} md={6} sx={{ mt: 5 }}>
             <img
               src={online2}
               alt="online"
@@ -86,15 +86,13 @@ const OnlineMedical = () => {
       </Container>
       <Container sx={{
         backgroundColor: themes?.themeMode === 'dark' ? '#181A1B' : '#F4F7FF',
-        height: '25rem',
         '@media (max-width: 600px)': {
-          height: '50rem',
           textAlign: 'center',
         },
       }}
       >
-        <Grid container spacing={2} mt={5}>
-          <Grid item lg={6} xs={12}>
+        <Grid container spacing={2} mt={5} sx={{ alignItems: 'center' }}>
+          <Grid item xs={12} sm={6}>
             <img
               src={group}
               alt="group"
@@ -103,8 +101,8 @@ const OnlineMedical = () => {
               }}
             />
           </Grid>
-          <Grid item lg={5} xs={12} sx={{ mt: 10, ml: 5 }}>
-            <Typography variant="h5" color="primary" sx={{ fontWeight: 'bold', mb: 2, mt: 5 }}>
+          <Grid item xs={12} sm={6} sx={{ p: '1rem' }}>
+            <Typography variant="h5" color="primary" sx={{ fontWeight: 'bold', pb: '0.5rem' }}>
               Come on
               <br />
               book your appointment

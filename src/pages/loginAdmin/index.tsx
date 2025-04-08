@@ -55,14 +55,14 @@ const LoginAdmin = () => {
       }
     }
     >
-      <Box sx={{ width: '500px' }}>
-        <img className="logo" src="https://imgur.com/uXh9MXM.png" alt="logo" />
+      <Box sx={{ width: 'fit-content' }}>
+        <img className="logo" style={{ margin: 0 }} src="https://imgur.com/uXh9MXM.png" alt="logo" />
       </Box>
-      <Box sx={loginContainer}>
+      <Box sx={{ ...loginContainer, width: { xs: '100%', sm: '400px' } }}>
         <TextField
           error={formik.touched.username && Boolean(formik.errors.username)}
           helperText={formik.touched.username && formik.errors.username}
-          sx={{ width: '90%', margin: 'auto' }}
+          sx={{ width: '100%', margin: 'auto' }}
           onChange={formik.handleChange}
           value={formik.values.username}
           id="outlined-password-input"
@@ -73,7 +73,7 @@ const LoginAdmin = () => {
           autoComplete="current-password"
         />
         <TextField
-          sx={{ width: '90%', margin: 'auto' }}
+          sx={{ width: '100%', margin: 'auto' }}
           onChange={formik.handleChange}
           required
           value={formik.values.password}
@@ -88,7 +88,7 @@ const LoginAdmin = () => {
         <LoadingButton
           loading={formik.isSubmitting}
           disabled={!formik.isValid || formik.isSubmitting}
-          sx={{ width: '90%', padding: '15px', margin: 'auto' }}
+          sx={{ width: '100%', padding: '15px', margin: 'auto' }}
           onClick={() => formik.handleSubmit()}
           variant="contained"
 

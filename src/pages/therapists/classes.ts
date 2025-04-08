@@ -3,8 +3,7 @@ interface Type {
 }
 
 const SearchBoxStyle: Type = {
-  width: '85%',
-  maxWidth: 400,
+  width: '100%',
   borderRadius: '999px',
   backgroundColor: '#eee',
   paddingLeft: 2,
@@ -14,12 +13,9 @@ const SearchBoxStyle: Type = {
 };
 
 const SelectInputStyle: Type = {
-
-  marginRight: '50px',
   backgroundColor: '#eee',
   borderRadius: '999px',
-  marginBottom: '10px',
-
+  width: '100%'
 };
 
 export { SearchBoxStyle, SelectInputStyle };

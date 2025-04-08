@@ -8,11 +8,6 @@ const ChangePhoto: React.FC<Props> = ({
   onChange, isProfileOwner, hover, setHover, imgUrl,
 }) => (
   <Box
-    gridColumn="span 6"
-    sx={{
-      position: 'relative',
-      ml: 2,
-    }}
     onMouseEnter={() => setHover(true)}
     onMouseLeave={() => setHover(false)}
   >
@@ -21,8 +16,7 @@ const ChangePhoto: React.FC<Props> = ({
       alt="profile"
       style={{
         width: '100%',
-        height: '260px',
-        objectFit: 'cover',
+        objectFit: 'none',
         opacity: hover && isProfileOwner ? '0.5' : '1',
         borderRadius: '6px',
       }}

@@ -35,11 +35,11 @@ const BioEditor: React.FC<BioEditorProps> = ({
   };
 
   return (
-    <div>
+    <div style={{ width: '100%', maxWidth: '100%' }}>
       {show ? (
         <>
           <ReactQuill
-            style={{ height: '150px', marginTop: 20, color: themeMode === 'dark' ? '#eeee' : '#000' }}
+            style={{ width: '100%', maxWidth: '100%', height: '150px', marginTop: 20, color: themeMode === 'dark' ? '#eeee' : '#000' }}
             theme="snow"
             value={textBio}
             onChange={handleChangeTextBio}
@@ -48,7 +48,7 @@ const BioEditor: React.FC<BioEditorProps> = ({
             variant="contained"
             color="primary"
             onClick={handleSaveChanges}
-            sx={{ fontSize: '10px', ml: 80 }}
+            sx={{ fontSize: '10px', display: 'block', m: '0 10px 0 auto' }}
             loading={isLoading}
             loadingIndicator={<CircularProgress size={16} />}
           >
@@ -59,7 +59,7 @@ const BioEditor: React.FC<BioEditorProps> = ({
         <>
           <IconButton
             onClick={handleEditBio}
-            sx={{ fontSize: '10px', ml: 120 }}
+            sx={{ fontSize: '10px' }}
           >
             <Edit />
           </IconButton>

@@ -5,6 +5,8 @@
 }
 .signUpLink{
      margin: 60px;
+     font-size: 16px;
+
 }
 
 
@@ -15,6 +17,7 @@
     @media(max-width: 600px){
 .signUpLink{
     margin: 20px;
+    font-size: 14px;
 }
     }
     
