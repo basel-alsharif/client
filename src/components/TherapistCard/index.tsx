@@ -18,7 +18,7 @@ const GridCard = ({ therapist }: TherapistCardProps) => (
           component="img"
           image={`${therapist.profileImg}?timestamp=${Date.now()}`}
           alt={therapist.user.fullName}
-          sx={classes.therapistImage}
+          sx={{ ...classes['therapistImage'], height: '180px', width: 'auto', margin: 'auto auto 15px' }}
         />
 
         <CardContent sx={{ padding: 0 }}>
